@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../220316_Vue/count_up_down.css">
+</head>
+<body>
+    <h2>구구단 5단 리스트만들기</h2>
+    <div id="app">
+        <ul>
+            <li v-for="mul in arr"> 5 x {{ mul }}  = {{ mul*=5 }}</li>
+            <li v-for="(mul, index) in arr"> {{ index }}번 : {{ mul }}</li>
+            <!-- <li v-for="mul in 9"> 5 x {{ mul }}  = {{ mul*5 }}</li> -->
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                arr: [1,2,3,4,5,6,7,8,9]
+                // arr: ""
+            }
+         });
+    </script>
+</body>
+</html>

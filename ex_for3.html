@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../220316_Vue/count_up_down.css">
+</head>
+<body>
+    <h2> 버튼으로 리스트 추가/삭제 예제 </h2>
+    <div id="app">
+        <ul>
+            <li v-for="arr in myArray"> {{ arr }} </li>
+        </ul>
+        <button @click="addLast">맨 뒤에 추가</button>
+        <button @click="addObj(3)">네 번째에 추가</button>
+        <button @click="changeObj(0)">첫 번째를 변경</button>
+        <button @click="deleteObj(1)">두 번째를 삭제</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                myArray: ["첫번째", "두번째", "세번째", "네번째", "다섯번째"]
+            },
+            methods: {
+                addLast: function() {
+                    this.myArray.push("맨 뒤에 추가");
+                },
+                addObj: function(index) {
+                    this.myArray.splice(index, 0, "[추가]");
+                    // 1번째: 배열위치, 2번째: 몇개를 삭제할건지, 3번째: 삭제할 위치에 추가할 내용
+                },
+                changeObj: function(index) {
+                    this.myArray.splice(index, 1, "[변경]");
+                },
+                deleteObj: function(index) {
+                    this.myArray.splice(index, 1);
+                    // 3번째 안쓰면 내용 안들어감
+                }
+            }
+        });
+    </script>
+</body>
+</html>

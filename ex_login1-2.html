@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="이메일을 입력하세요" v-model="userData.email"><br>
+        <input type="password" placeholder="패스워드를 입력하세요" v-model="userData.password">
+
+        <!-- 아래 버튼을 클릭하면 아래 div 영역에 이메일과 비밀번호를 출력해 주세요 -->
+        <button id="buttons" v-on:click="showing()">확인</button>
+        <div v-show:"dataShow">
+            <!-- 또는 <div v-show:"dataShow" -->
+            <br>
+            입력된 이메일 : {{ userData.email }}
+            <br>
+            입력된 패스워드 : {{ userData.password }}
+            <!-- 입력된 패스워드 : {{ userData.password }} -->
+        </div>
+    </div>
+
+    <script>
+
+        // 객체 만들어서 하는 방법 
+        new Vue({
+            el: "#app",
+            data: {
+                userData: {
+                    email: "",
+                    password: ""
+                }
+            },
+            dataShow: false,
+            methods: {
+                showing() {
+                    dataShow: false
+                }
+            }
+        });
+    </script>
+</body>
+</html>

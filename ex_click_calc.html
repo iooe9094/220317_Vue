@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../220316_Vue/count_up_down.css">
+</head>
+<body>
+    <h2>간단한 계산기 만들기</h2>
+    <div id="app">
+        <input v-model.number="num1">
+        <input v-model.number="num2">
+        <br><br>
+        <button @click="nums1">더하기</button>
+        <button @click="nums2">빼기</button>
+        <button @click="nums3">나누기</button>
+        <button @click="nums4">곱하기</button>
+
+        <p>결과값 : {{ calc }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                num1: 0,
+                num2: 0,
+                calc: 0
+            },
+            methods: {
+                nums1: function() {
+                   this.calc = this.num1 + this.num2;
+                },
+                nums2: function() {
+                   this.calc = this.num1 - this.num2;
+                },
+                nums3: function() {
+                   this.calc = this.num1 / this.num2;
+                },
+                nums4: function() {
+                   this.calc = this.num1 * this.num2;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

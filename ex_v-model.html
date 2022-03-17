@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <h2>입력 폼 활용한 종합연습</h2>
+    <!-- 뷰 영역 -->
+    <div id="app">
+        이름 : <input type="text" v-model.lazy="myName" placeholder="이름을 입력하세요">
+        <!-- input box를 lazy 속성으로 생성 -->
+        <br><br>
+        좋아하는 색은 : <br><br><input type="radio" value="red" v-model="myColor">
+        <!-- input type 을 radio, value는 red -->
+        <label>
+            빨강
+        </label><br>
+        <input type="radio" value="blue" v-model="myColor">
+        <label>
+            파랑
+        </label><br>
+        <input type="radio" value="yellow" v-model="myColor">
+        <label>
+            노랑
+        </label><br>
+        <input type="radio" value="gray" v-model="myColor">
+        <label>
+            회색
+        </label><br>
+        <input type="radio" value="black" v-model="myColor">
+        <label>
+            검정
+        </label><br>
+        <!-- 이름과 좋아하는 색을 표시해 주세요 -->
+        <!-- 좋아하는 색으로 스타일을 적용해 주세요 -->
+        <p :style="{color: myColor}"> 내 이름은 {{ myName }}이고, 좋아하는 색은 {{ myColor }}입니다.</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                myName: "",
+                myColor: ""
+            }
+
+        });
+    </script>
+</body>
+</html>
